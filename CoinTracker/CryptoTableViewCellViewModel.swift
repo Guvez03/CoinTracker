@@ -12,7 +12,7 @@ class CryptoTableViewCellViewModel {
     let symbol: String
     let price: String
     let icon_url: URL?
-    var iconData: Data?   // cash işlemi yaptık class'a çevirdik çünkü structa letleri değiştirme imkanımız yoktu. ve init ile başlattık.
+    var iconData: Data? 
     
     init(name:String,symbol:String,price:String,iconUrl:URL?) {
         self.name = name

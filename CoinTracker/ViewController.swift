@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        NetworkAPI.shared.getAllCryptoData { [weak self] result in  // bu tür kullanımı completion kullandığımız için kullanabiliriz.
+        NetworkAPI.shared.getAllCryptoData { [weak self] result in
             
             switch result {
             case .success(let models):
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
                     
                     let iconUrl = URL(string: NetworkAPI.shared.icons.filter({ icon in
                         icon.asset_id == model.asset_id
-                    }).first?.url ?? ""  // first.url burada ne işe yarıyor.
+                    }).first?.url ?? ""
                     )
                     return CryptoTableViewCellViewModel(name: model.name ?? "N/A", symbol: model.asset_id ?? "", price: priceString ?? "N/A",iconUrl:iconUrl)
                 })
@@ -71,9 +71,9 @@ class ViewController: UIViewController {
         }
         
     }
-    override func viewDidLayoutSubviews() { //???
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds // what is different frame and bounds
+        tableView.frame = view.bounds
     }
 }
 extension ViewController: UITableViewDelegate,UITableViewDataSource {

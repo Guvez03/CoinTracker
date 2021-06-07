@@ -58,7 +58,7 @@ class CryptoTableViewCell: UITableViewCell {
     
     // layout
     
-    override func layoutSubviews() {  // nedir
+    override func layoutSubviews() {
         super.layoutSubviews()
         
         iconImageView.sizeToFit()
@@ -76,7 +76,7 @@ class CryptoTableViewCell: UITableViewCell {
 
     }
     
-    override func prepareForReuse() {  // nedir
+    override func prepareForReuse() { 
         super.prepareForReuse()
         iconImageView.image = nil
         nameLabel.text = nil
@@ -92,11 +92,11 @@ class CryptoTableViewCell: UITableViewCell {
         symbolLabel.text = viewModel.symbol
         priceLabel.text = viewModel.price
         
-        if let data = viewModel.iconData {  // iconData var ise direk atıyo yoksa servisten çekiyor.
+        if let data = viewModel.iconData {
             iconImageView.image = UIImage(data: data)
         }
         else if let url = viewModel.icon_url {
-            let task = URLSession.shared.dataTask(with: url) { [weak self] data, _ , _ in  // ne işe yarıyordu
+            let task = URLSession.shared.dataTask(with: url) { [weak self] data, _ , _ in
                 if let data = data {
                     viewModel.iconData = data
                     DispatchQueue.main.async {
